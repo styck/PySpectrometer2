@@ -52,7 +52,7 @@ if args.waterfall:
 if args.device:
 	dev = args.device
 else:
-	dev = 0
+	dev = 1
 	
 if args.fps:
 	fps = args.fps
@@ -64,8 +64,8 @@ frameHeight = 600
 
 
 #init video
-cap = cv2.VideoCapture('/dev/video'+str(dev), cv2.CAP_V4L)
-#cap = cv2.VideoCapture(0)
+# cap = cv2.VideoCapture('/dev/video'+str(dev), cv2.CAP_V4L)  # Raspberry PI
+cap = cv2.VideoCapture(dev)  # Widnows
 print("[info] W, H, FPS")
 cap.set(cv2.CAP_PROP_FRAME_WIDTH,frameWidth)
 cap.set(cv2.CAP_PROP_FRAME_HEIGHT,frameHeight)
